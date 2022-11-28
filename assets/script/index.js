@@ -2,6 +2,7 @@
 
 import { select, onEvent, newPost } from './utility-functions.js'
 import { User } from './user-class.js'
+import { Subscriber } from './subscriber-class.js';
 
 // Selectors
 const submit = select('.submit-button');
@@ -12,7 +13,15 @@ const modal = select('.modal');
 const imageInput = select('.upload-image');
 const previewImage = select('.preview');
 
-const user = new User(1, 'Beth', 'Bethzilla', 'bethzilla666@email.com');
+const user = new Subscriber(
+    1, 
+    'Beth', 
+    'Bethzilla', 
+    'bethzilla666@email.com',
+    29, 
+    ['Anime Fans', 'Geeks', 'Bloggers', 'Canadians'],
+    true
+);
 
 onEvent('click', modal, function () {
     console.log(user.getInfo());
