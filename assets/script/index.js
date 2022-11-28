@@ -22,7 +22,7 @@ const user = new Subscriber(
     'Beth', 
     'Bethzilla', 
     'bethzilla666@email.com',
-    29, 
+    ['My blog', 'My Favorite Shows', 'My Besties'], 
     ['Anime Fans', 'Geeks', 'Bloggers', 'Canadians'],
     true
 );
@@ -43,17 +43,29 @@ onEvent('click', submit, function() {
     }
 })
 
+
+
 window.onclick = function(event) {
     if (event.target == overlay) {
         overlay.style.display = 'none';
     }
 }
 
+let url;
 imageInput.addEventListener('change', function(e) {
     // preview
     let url = URL.createObjectURL(e.target.files[0]);
     previewImage.setAttribute('src', url);
 
 }, false);
+
+onEvent('click', previewImage, function() {
+    URL.revokeObjectURL(url);
+    previewImage.setAttribute('src', '');
+    url = undefined;
+    reader.abort(); // not working for some reason
+})
+
+
 
 export { postInput, postContainer, user, imageInput, previewImage, postElement, modal };

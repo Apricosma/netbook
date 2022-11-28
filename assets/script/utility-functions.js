@@ -1,4 +1,4 @@
-import { postContainer, postInput, user, imageInput, previewImage, postElement, modal} from './index.js';
+import { postContainer, postInput, user, imageInput, previewImage } from './index.js';
 
 function select(selector, parent = document) {
     return parent.querySelector(selector);
@@ -52,9 +52,10 @@ function newPost() {
         const img = new Image();
         img.src = reader.result; 
         element.appendChild(img); // appends the result of the reader to element
+        
     }
     reader.readAsDataURL(imageInput.files[0]);
-
+    
 }
 
 // outputs the current time in 12-hour format
@@ -76,16 +77,22 @@ function populateModal() {
     const id = select('.id');
     const pages = select('.pages');
     const groups = select('.groups');
+    const subscribed = select('.subscribed')
 
     userName.innerText = user.userName;
     name.innerText = user.name;
     email.innerText = user.email;
     id.innerText = `Account ID: ${user.id}`;
-    pages.innerText = `Total pages: ${user.pages}`;
+    pages.innerText = `My pages: ${user.pages}`;
+    
+    if (user.canMonetize) {
+        subscribed.innerText = `Monetization: Enabled`
+    }
 
     let groupList = user.groups;
     groups.innerText = `Groups: ${groupList.join(', ')}`;
     console.log(user.groups);
+
 }
 
 function openModal() {
