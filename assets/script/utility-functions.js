@@ -1,26 +1,31 @@
-import { postContainer, postInput, user } from './index.js';
+import { postContainer, postInput, user, imageInput, previewImage } from './index.js';
 
 function select(selector, parent = document) {
     return parent.querySelector(selector);
 }
 
- function onEvent(event, selector, callback) {
+function onEvent(event, selector, callback) {
     return selector.addEventListener(event, callback);
 }
 
+// Creates a new post and prepends it to the post container
 function newPost() {
+    // creates the div its self
     let element = document.createElement('div');
     postContainer.prepend(element);
     element.classList.add('user-post');
 
+    // creates user icon
     let userImg = document.createElement('i');
     element.appendChild(userImg);
     userImg.classList.add('fa-solid', 'fa-user');
 
+    // attaches username from Object
     let headUserName = document.createElement('p');
     element.appendChild(headUserName);
     headUserName.innerText = user.userName;
 
+    // grabs local time and prints
     let date = new Date();
     const month = date.toLocaleString('default', { month: 'long' });
     let dateText = document.createElement('p');
@@ -28,16 +33,19 @@ function newPost() {
     dateText.innerText = `${month} ${date.getDate()}, ${date.getFullYear()}`;
     element.appendChild(dateText);
 
+    // same for time
     let timeText = document.createElement('p');
     timeText.classList.add('time');
     timeText.innerText = `${currentTime(date)}`;
     element.appendChild(timeText);
 
+    // the text of the post submission
     let postText = document.createElement('p');
     postText.innerText = postInput.value;
     element.appendChild(postText);
 }
 
+// outputs the current time in 12-hour format
 function currentTime(date) {
     let hours = date.getHours();
     let minutes = date.getMinutes();
@@ -48,5 +56,6 @@ function currentTime(date) {
     let timeString = hours + ':' + minutes + ' ' + ampm;
     return timeString;
 }
+
 
 export { select, onEvent, newPost }
