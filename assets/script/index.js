@@ -1,6 +1,6 @@
 'use strict'
 
-import { select, onEvent, newPost } from './utility-functions.js'
+import { select, onEvent, newPost, populateModal, openModal } from './utility-functions.js'
 import { User } from './user-class.js'
 import { Subscriber } from './subscriber-class.js';
 
@@ -12,25 +12,46 @@ const postElement = select('.user-post');
 const modal = select('.modal');
 const imageInput = select('.upload-image');
 const previewImage = select('.preview');
+const overlay = select('.overlay');
+const err = select('.error');
+
+// modal selectors
 
 const user = new Subscriber(
     1, 
     'Beth', 
     'Bethzilla', 
     'bethzilla666@email.com',
-    29, 
+    ['My blog', 'My Favorite Shows', 'My Besties'], 
     ['Anime Fans', 'Geeks', 'Bloggers', 'Canadians'],
     true
 );
 
 onEvent('click', modal, function () {
-    console.log(user.getInfo());
+    populateModal();
+    openModal();
 })
+
 
 onEvent('click', submit, function() {
-    newPost();
+    if (postInput.value == '') {
+        err.innerText = 'Message field must have text';
+        throw new Error('Message field must have text');
+    } else {
+        err.innerText = '';
+        newPost();
+    }
 })
 
+
+
+window.onclick = function(event) {
+    if (event.target == overlay) {
+        overlay.style.display = 'none';
+    }
+}
+
+let url;
 imageInput.addEventListener('change', function(e) {
     // preview
     let url = URL.createObjectURL(e.target.files[0]);
@@ -38,4 +59,13 @@ imageInput.addEventListener('change', function(e) {
 
 }, false);
 
-export { postInput, postContainer, user, imageInput, previewImage, postElement };
+onEvent('click', previewImage, function() {
+    URL.revokeObjectURL(url);
+    previewImage.setAttribute('src', '');
+    url = undefined;
+    reader.abort(); // not working for some reason
+})
+
+
+
+export { postInput, postContainer, user, imageInput, previewImage, postElement, modal };
