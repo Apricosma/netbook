@@ -45,12 +45,13 @@ function newPost() {
     postText.innerText = postInput.value;
     element.appendChild(postText);
 
-    // reader 
+    // reader object
     const reader = new FileReader();
+
     reader.onload = function () {
         const img = new Image();
-        img.src = reader.result;
-        element.appendChild(img);
+        img.src = reader.result; 
+        element.appendChild(img); // appends the result of the reader to element
     }
     reader.readAsDataURL(imageInput.files[0]);
 

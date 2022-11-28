@@ -12,7 +12,7 @@ const modal = select('.modal');
 const imageInput = select('.upload-image');
 const previewImage = select('.preview');
 
-const user = new User(5, 'Jim', 'Jimbo59', 'Jim@mail.com');
+const user = new User(1, 'Beth', 'Bethzilla', 'bethzilla666@email.com');
 
 onEvent('click', modal, function () {
     console.log(user.getInfo());
@@ -22,13 +22,11 @@ onEvent('click', submit, function() {
     newPost();
 })
 
-
 imageInput.addEventListener('change', function(e) {
     // preview
     let url = URL.createObjectURL(e.target.files[0]);
     previewImage.setAttribute('src', url);
 
-    
 }, false);
 
 export { postInput, postContainer, user, imageInput, previewImage, postElement };
