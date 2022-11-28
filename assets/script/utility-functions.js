@@ -1,4 +1,4 @@
-import { postContainer, postInput, user, imageInput, previewImage, postElement } from './index.js';
+import { postContainer, postInput, user, imageInput, previewImage, postElement, modal} from './index.js';
 
 function select(selector, parent = document) {
     return parent.querySelector(selector);
@@ -69,5 +69,28 @@ function currentTime(date) {
     return timeString;
 }
 
+function populateModal() {
+    const userName = select('.user-name');
+    const name = select('.name');
+    const email = select('.email');
+    const id = select('.id');
+    const pages = select('.pages');
+    const groups = select('.groups');
 
-export { select, onEvent, newPost }
+    userName.innerText = user.userName;
+    name.innerText = user.name;
+    email.innerText = user.email;
+    id.innerText = `Account ID: ${user.id}`;
+    pages.innerText = `Total pages: ${user.pages}`;
+
+    let groupList = user.groups;
+    groups.innerText = `Groups: ${groupList.join(', ')}`;
+    console.log(user.groups);
+}
+
+function openModal() {
+    let overlay = select('.overlay');
+    overlay.style.display = 'block';
+}
+
+export { select, onEvent, newPost, populateModal, openModal }

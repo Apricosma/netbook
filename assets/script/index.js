@@ -1,6 +1,6 @@
 'use strict'
 
-import { select, onEvent, newPost } from './utility-functions.js'
+import { select, onEvent, newPost, populateModal, openModal } from './utility-functions.js'
 import { User } from './user-class.js'
 import { Subscriber } from './subscriber-class.js';
 
@@ -12,6 +12,9 @@ const postElement = select('.user-post');
 const modal = select('.modal');
 const imageInput = select('.upload-image');
 const previewImage = select('.preview');
+const overlay = select('.overlay');
+
+// modal selectors
 
 const user = new Subscriber(
     1, 
@@ -24,12 +27,19 @@ const user = new Subscriber(
 );
 
 onEvent('click', modal, function () {
-    console.log(user.getInfo());
+    populateModal();
+    openModal();
 })
 
 onEvent('click', submit, function() {
     newPost();
 })
+
+window.onclick = function(event) {
+    if (event.target == overlay) {
+        overlay.style.display = 'none';
+    }
+}
 
 imageInput.addEventListener('change', function(e) {
     // preview
@@ -38,4 +48,4 @@ imageInput.addEventListener('change', function(e) {
 
 }, false);
 
-export { postInput, postContainer, user, imageInput, previewImage, postElement };
+export { postInput, postContainer, user, imageInput, previewImage, postElement, modal };
