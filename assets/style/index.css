@@ -156,8 +156,17 @@ textarea {
 .user-post p:first-of-type {
     line-height: 50px;
     font-size: 20px;
+    float: left;
 }
 
-.user-post p:not(:first-of-type) {
-    margin-top: 10px;
+.date, .time {
+    margin-left: 550px;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: right;
 }
+
+.user-post p:last-child {
+    margin-top: 15px
+}
+
