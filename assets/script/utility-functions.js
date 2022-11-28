@@ -57,7 +57,6 @@ function newPost() {
         
     }
     reader.readAsDataURL(imageInput.files[0]);
-    
 }
 
 // outputs the current time in 12-hour format
@@ -85,7 +84,9 @@ function populateModal() {
     name.innerText = user.name;
     email.innerText = user.email;
     id.innerText = `Account ID: ${user.id}`;
-    pages.innerText = `My pages: ${user.pages}`;
+
+    let pageList = user.pages;
+    pages.innerText = `My pages: ${pageList.join(', ')}`;
     
     if (user.canMonetize) {
         subscribed.innerText = `Monetization: Enabled`
@@ -93,8 +94,6 @@ function populateModal() {
 
     let groupList = user.groups;
     groups.innerText = `Groups: ${groupList.join(', ')}`;
-    console.log(user.groups);
-
 }
 
 function openModal() {
