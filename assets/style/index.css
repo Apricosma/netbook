@@ -74,3 +74,50 @@ ul li {
     padding: 10px;
     color: var(--app-pink);
 }
+
+/* - - - - - - - - - - - - - - - - */
+/* Input                           */
+/* - - - - - - - - - - - - - - - - */
+
+.input-box {
+    margin: 50px auto;
+    max-width: 700px;
+    min-height: 200px;
+    height: 100px;
+    background-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-color: var(--app-pink);
+    border-width: 1px;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+textarea {
+    width: 680px;
+    height: 125px;
+    resize: none;
+    background-color: #000;
+    color: var(--app-pink);
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.submit-button {
+    float: right;
+    padding: 10px 20px;
+    background-color: var(--app-pink);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--app-dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--app-pink);
+}
