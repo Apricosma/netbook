@@ -136,12 +136,28 @@ textarea {
     max-width: 700px;
 }
 
-.test-div {
+.user-post {
     min-height: 200px;
+    max-width: 700px;
     background-color: rgb(0, 0, 0);
     border-style: solid;
     border-color: var(--app-pink);
     border-width: 1px;
     border-radius: 3px;
-    padding: 10px;
+    padding: 20px;
+    color: var(--app-pink);
+}
+
+.user-post i {
+    float: left;
+    margin-right: 10px;
+}
+
+.user-post p:first-of-type {
+    line-height: 50px;
+    font-size: 20px;
+}
+
+.user-post p:not(:first-of-type) {
+    margin-top: 10px;
 }
