@@ -171,6 +171,13 @@ input[type=file] {
     color: var(--app-pink);
 }
 
+.post-text {
+    font-size: 18px;
+    padding-bottom: 10px;
+    margin: 25px 0;
+    border-bottom: 1px solid var(--app-pink);
+}
+
 .user-post i {
     float: left;
     margin-right: 10px;
@@ -178,8 +185,9 @@ input[type=file] {
 
 .user-post p:first-of-type {
     line-height: 50px;
-    font-size: 20px;
+    font-size: 24px;
     float: left;
+    font-weight: 600;
 }
 
 .date, .time {
@@ -190,6 +198,7 @@ input[type=file] {
 }
 
 .user-post p:last-child {
-    margin-top: 15px
+    margin-top: 15px;
+    font-size: 16px;
 }
 
