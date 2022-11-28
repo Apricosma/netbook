@@ -16,9 +16,11 @@ function newPost() {
     element.classList.add('user-post');
 
     // creates user icon
-    let userImg = document.createElement('i');
+    let userImg = document.createElement('img');
+    userImg.src = "./assets/media/vecteezy_girl-flat-design-avatar-with-angry-face-for-profile-picture_7819618.png"
+    userImg.classList.add('user-img');
     element.appendChild(userImg);
-    userImg.classList.add('fa-solid', 'fa-user');
+    
 
     // attaches username from Object
     let headUserName = document.createElement('p');

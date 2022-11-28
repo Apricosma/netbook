@@ -180,6 +180,10 @@ input[type=file] {
     color: var(--app-pink);
 }
 
+.user-post:last-of-type {
+    margin-bottom: 50px;
+}
+
 .post-text {
     font-size: 18px;
     padding-bottom: 10px;
@@ -187,8 +191,9 @@ input[type=file] {
     border-bottom: 1px solid var(--app-pink);
 }
 
-.user-post i {
+.user-img {
     float: left;
+    width: 50px;
     margin-right: 10px;
 }
 
@@ -227,7 +232,7 @@ input[type=file] {
 
 .modal-box {
     display: flex;
-    height: 550px;
+    height: 575px;
     width: 450px;
     background-color: #000;
     position: absolute;
