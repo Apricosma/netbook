@@ -9,6 +9,8 @@ const postInput = select('.input-text');
 const postContainer = select('.post-field');
 const postElement = select('.user-post');
 const modal = select('.modal');
+const imageInput = select('.upload-image');
+const previewImage = select('.preview');
 
 const user = new User(5, 'Jim', 'Jimbo59', 'Jim@mail.com');
 
@@ -20,4 +22,13 @@ onEvent('click', submit, function() {
     newPost();
 })
 
-export { postInput, postContainer, user };
+
+imageInput.addEventListener('change', function(e) {
+    // preview
+    let url = URL.createObjectURL(e.target.files[0]);
+    previewImage.setAttribute('src', url);
+
+    
+}, false);
+
+export { postInput, postContainer, user, imageInput, previewImage, postElement };
