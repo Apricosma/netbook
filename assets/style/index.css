@@ -35,7 +35,7 @@ body {
 .flexbox {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 /* - - - - - - - - - - - - - - - - */
@@ -147,6 +147,10 @@ input[type=file] {
     max-height: 100px; 
     max-width: 100px; 
     margin: 10px 5px; 
+}
+
+.error {
+    color: red;
 }
 
 /* - - - - - - - - - - - - - - - - */

@@ -13,6 +13,7 @@ const modal = select('.modal');
 const imageInput = select('.upload-image');
 const previewImage = select('.preview');
 const overlay = select('.overlay');
+const err = select('.error');
 
 // modal selectors
 
@@ -31,8 +32,15 @@ onEvent('click', modal, function () {
     openModal();
 })
 
+
 onEvent('click', submit, function() {
-    newPost();
+    if (postInput.value == '') {
+        err.innerText = 'Message field must have text';
+        throw new Error('Message field must have text');
+    } else {
+        err.innerText = '';
+        newPost();
+    }
 })
 
 window.onclick = function(event) {
