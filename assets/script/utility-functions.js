@@ -79,6 +79,7 @@ function populateModal() {
     const pages = select('.pages');
     const groups = select('.groups');
     const subscribed = select('.subscribed')
+    console.log(user.getInfo());
 
     userName.innerText = user.userName;
     name.innerText = user.name;
