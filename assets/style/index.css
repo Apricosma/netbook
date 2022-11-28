@@ -2,12 +2,7 @@
 
 :root {
     --app-dark-bg: #1a1d28;
-    --app-red: #ff3c57;
-    --app-green: #33ab4e;
-    --app-purple: #833cff;
-    --app-orange: #ff833c;
-    --app-blue: #3c57ff;
-    --app-blue-hover: #364ee6;
+    --app-pink: #cf6a83;
 }
     
 body {
@@ -17,4 +12,65 @@ body {
 .container {
     width: min(100% - 30px, 1280px);
     margin-inline: auto;
+}
+
+@-webkit-keyframes slide {
+    from{
+        background-position:-100px;
+    }
+    to{
+        background-position:100px;
+    }
+}
+
+body {
+    float: left;
+    position: relative;
+    width:100%;
+    height:100%;
+    background:url(https://fauux.neocities.org/bg_700.gif);
+    -webkit-animation: slide 5s linear infinite;
+}
+
+.flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* - - - - - - - - - - - - - - - - */
+/* HEADER                          */
+/* - - - - - - - - - - - - - - - - */
+
+header {
+    background-color: #000;
+    color: var(--app-pink);
+    height: 75px;
+    border-bottom: solid;
+    border-width: 1px;
+    box-shadow: 1px 1px 25px#cf6a83;
+}
+
+h2 {
+    line-height: 65px;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+ul li {
+    float: right;
+    padding: 0 20px;
+    list-style: none;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.fa-solid {
+    font-size: 28px;
+    color: white;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 1px;
+    padding: 10px;
+    color: var(--app-pink);
 }
