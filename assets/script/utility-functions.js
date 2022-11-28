@@ -1,4 +1,4 @@
-import { postContainer, postInput, user, imageInput, previewImage } from './index.js';
+import { postContainer, postInput, user, imageInput, previewImage, postElement } from './index.js';
 
 function select(selector, parent = document) {
     return parent.querySelector(selector);
@@ -43,6 +43,16 @@ function newPost() {
     let postText = document.createElement('p');
     postText.innerText = postInput.value;
     element.appendChild(postText);
+
+    // reader 
+    const reader = new FileReader();
+    reader.onload = function () {
+        const img = new Image();
+        img.src = reader.result;
+        element.appendChild(img);
+    }
+    reader.readAsDataURL(imageInput.files[0]);
+
 }
 
 // outputs the current time in 12-hour format

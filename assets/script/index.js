@@ -22,15 +22,13 @@ onEvent('click', submit, function() {
     newPost();
 })
 
+
 imageInput.addEventListener('change', function(e) {
-    previewImage.onload = function() {
-        let dims = this.naturalWidth + 'x' + this.naturalHeight;
-        document.querySelector('.dimensions').innerHTML = 'Dimensions: ' + dims;
-      
-        window.URL.revokeObjectURL(this.src);
-    };
+    // preview
     let url = URL.createObjectURL(e.target.files[0]);
     previewImage.setAttribute('src', url);
+
+    
 }, false);
 
-export { postInput, postContainer, user, imageInput, previewImage };
+export { postInput, postContainer, user, imageInput, previewImage, postElement };

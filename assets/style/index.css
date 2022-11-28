@@ -138,7 +138,7 @@ input[type=file] {
     background: var(--app-pink);
 }
 
-img { 
+.input-box img { 
     max-height: 100px; 
     max-width: 100px; 
     margin: 10px 5px; 
