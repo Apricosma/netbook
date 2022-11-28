@@ -41,6 +41,7 @@ function newPost() {
 
     // the text of the post submission
     let postText = document.createElement('p');
+    postText.classList.add('post-text');
     postText.innerText = postInput.value;
     element.appendChild(postText);
 
